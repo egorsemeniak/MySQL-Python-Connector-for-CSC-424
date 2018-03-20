@@ -14,14 +14,15 @@ for result in cursor.stored_results():
     row = result.fetchone()
     while row is not None:
         if holder == False:
-                print "Showing Orders for Customer#: ",row[0],"Customer Name:",row[1]
-                print row[2],row[3],row[4]
+                print "+---------------------------------------------------------------------------------------------------+"
+                print "+Showing Orders for Customer#: ",row[0],"| Customer Name: ",row[1], "| From Country: ", row[2], "|"
+                print "+---------------------------------------------------------------------------------------------------+"
+                print "+ORDERS:  |"
+                print "----------"
+                print "| ",row[3],row[4]
                 holder = True
                 row = result.fetchone()
         elif holder != False:
-                print row[3],row[4]
+                print "| ",row[3],row[4]
                 row = result.fetchone()
-~                                                                                                                                                                                                         
-~                                                                                                                                                                                                         
-~                                                                                                                                                                                                         
-~                                                   
+~                                        
