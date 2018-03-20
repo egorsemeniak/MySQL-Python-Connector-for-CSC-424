@@ -1,0 +1,9 @@
+DROP PROCEDURE function_1;
+DELIMITER //
+CREATE PROCEDURE function_1 (IN input INT)
+BEGIN 
+SELECT customers.customerNumber, customers.customerName, customers.country, products.productName, products.productCode FROM customers INNER JOIN orders ON customers.customerNumber = orders.customerNumber INNER JOIN orderdetails ON orders.orderNumber = orderdetails.orderNumber INNER JOIN products ON orderdetails.productCode = products.productCode INNER JOIN productlines ON products.productLine = productlines.productline WHERE customers.customerNumber = input;
+END//
+
+DELIMITER ;
+CALL function_5(320);
